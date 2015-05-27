@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Spin and Go Domination</string>
+    <string name="heading">Learn to crush Spin &amp; Go\'s!</string>
+    <string name="action_settings">Settings</string>
+
+    <!--> BUTTON NAMES <-->
+    <string name="push_button">Push</string>
+    <string name="call_button">Call</string>
+    <string name="fold_button">Fold</string>
+
+</resources>
