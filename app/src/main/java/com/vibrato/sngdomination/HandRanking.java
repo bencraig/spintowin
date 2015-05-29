@@ -7,12 +7,12 @@ import java.util.ArrayList;
  * Created by PC on 5/28/2015.
  */
 public class HandRanking {
-    private static HandRanking handRankingArrayInstance;
+    private static HandRanking handRankingInstance;
 
     private static ArrayList<Hand> handRankings;
 
-    private HandRankingArray() {
-        if(handRankingsInstance != null) {
+    private HandRanking() { // only want to do this big thing one time, so using singleton pattern
+        if(handRankingInstance != null) {
             throw new IllegalStateException("Already instantiated");
         }
         // create hand ranking array based on flopzilla HU allin equity hand rankings
@@ -91,7 +91,6 @@ public class HandRanking {
         handRankings.add(new Hand(new Card(Rank.QUEEN, Suit.CLUBS), new Card(Rank.FIVE, Suit.CLUBS)));
         handRankings.add(new Hand(new Card(Rank.TEN, Suit.CLUBS), new Card(Rank.EIGHT, Suit.CLUBS)));
         handRankings.add(new Hand(new Card(Rank.KING, Suit.CLUBS), new Card(Rank.FOUR, Suit.DIAMONDS)));
-        handRankings.add(new Hand(new Card(Rank.TEN, Suit.CLUBS), new Card(Rank.EIGHT, Suit.CLUBS)));
         handRankings.add(new Hand(new Card(Rank.JACK, Suit.CLUBS), new Card(Rank.SEVEN, Suit.CLUBS)));
         handRankings.add(new Hand(new Card(Rank.QUEEN, Suit.CLUBS), new Card(Rank.FOUR, Suit.CLUBS)));
         handRankings.add(new Hand(new Card(Rank.QUEEN, Suit.CLUBS), new Card(Rank.SEVEN, Suit.DIAMONDS)));
@@ -189,9 +188,11 @@ public class HandRanking {
         handRankings.add(new Hand(new Card(Rank.THREE, Suit.CLUBS), new Card(Rank.DEUCE, Suit.DIAMONDS)));
     }
 
-    public ArrayList<Hand> getHandRankingsInstance() {
-        if (handRankingInstance)
-        return handRankingSingleton.handRankings;
+    public static ArrayList<Hand> getHandRankings() {
+        if (handRankingInstance == null) {
+            handRankingInstance = new HandRanking();
+        }
+        return HandRanking.handRankings;
     }
 
 }

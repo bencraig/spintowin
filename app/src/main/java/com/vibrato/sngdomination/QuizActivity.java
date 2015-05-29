@@ -1,15 +1,17 @@
 package com.vibrato.sngdomination;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
-enum GameType {
+import java.util.ArrayList;
+
+/*enum GameType {
     JACKPOT, SIX_MAX, NINE_MAX, MTT
-}
+}*/
 
 public class QuizActivity extends ActionBarActivity {
     private PlayerHand playerHand;
@@ -22,6 +24,9 @@ public class QuizActivity extends ActionBarActivity {
 
         generateHand();
         renderHand();
+
+        ArrayList<Hand> fullHandRanks = HandRanking.getHandRankings();
+        Log.i(this.getClass().getName(), "FULL HAND RANKING:" + fullHandRanks.toString());
     }
 
 
