@@ -17,6 +17,14 @@ public class Hand implements Comparable<Hand> {
         this.isPocketPair = card1.getRank().equals(card2.getRank());
     }
 
+    public Card getCard1() {
+        return this.card1;
+    }
+
+    public Card getCard2() {
+        return this.card2;
+    }
+
     public int compareTo(Hand hand2) {
        // HandRanking.getHandRankings()
         return 0;
